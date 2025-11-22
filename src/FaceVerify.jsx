@@ -1,6 +1,6 @@
 
 
-// FaceVerify.jsx - FIXED VERSION
+
 import React, { useRef, useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
@@ -49,16 +49,16 @@ export default function FaceVerify() {
     return () => { mounted = false; };
   }, []);
 
-  // ✅ FIXED: Start camera whenever captured is null
+
   useEffect(() => {
     let mounted = true;
 
     async function startCamera() {
-      // Don't start if we already have a captured image
+   
       if (captured) return;
 
       try {
-        // Stop existing stream first if any
+        
         if (streamRef.current) {
           streamRef.current.getTracks().forEach(t => t.stop());
           streamRef.current = null;
@@ -84,13 +84,13 @@ export default function FaceVerify() {
 
     return () => {
       mounted = false;
-      // Clean up stream on unmount
+   
       if (streamRef.current) {
         streamRef.current.getTracks().forEach(t => t.stop());
         streamRef.current = null;
       }
     };
-  }, [captured]); // ✅ Re-run when captured changes
+  }, [captured]); //
 
   const capture = () => {
     setError(null);
@@ -108,7 +108,7 @@ export default function FaceVerify() {
     setCaptured(data);
     setResult(null);
 
-    // ✅ Stop camera after capturing
+    
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(t => t.stop());
       streamRef.current = null;
@@ -207,12 +207,12 @@ export default function FaceVerify() {
     }
   };
 
-  // ✅ FIXED: Reset function now just clears captured state
+  
   const reset = () => {
     setCaptured(null);
     setResult(null);
     setError(null);
-    // Camera will restart automatically via useEffect
+
   };
 
   return (
@@ -263,7 +263,7 @@ export default function FaceVerify() {
                 <div style={{ marginTop: 12 }}>
                   <button 
                     className="btn-secondary small" 
-                    onClick={() => setCaptured(null)} // ✅ Just clear captured
+                    onClick={() => setCaptured(null)} 
                   >
                     Retake
                   </button>
