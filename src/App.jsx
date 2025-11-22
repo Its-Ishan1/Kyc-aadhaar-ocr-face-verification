@@ -297,33 +297,7 @@ export default function App() {
 
               {details && (
                 <>
-                  {/* {confidence && (
-                    <div style={{ 
-                      marginBottom: 12, 
-                      padding: 10, 
-                      background: "#f0f9ff", 
-                      borderRadius: 8,
-                      fontSize: 13
-                    }}>
-                      <strong>Detection Confidence:</strong>
-                      <div style={{ marginTop: 6, display: "flex", gap: 8, flexWrap: "wrap" }}>
-                        {Object.entries(confidence).map(([key, val]) => (
-                          <span 
-                            key={key}
-                            style={{
-                              padding: "3px 8px",
-                              borderRadius: 4,
-                              background: val ? "#dcfce7" : "#fee2e2",
-                              color: val ? "#166534" : "#991b1b",
-                              fontSize: 12
-                            }}
-                          >
-                            {key}: {val ? "✓" : "✗"}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )} */}
+                  
                   {confidence && (
   <div style={{ 
     marginBottom: 12, 
